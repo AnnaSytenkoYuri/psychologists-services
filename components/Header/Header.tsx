@@ -8,7 +8,7 @@ export default function Header() {
       <div className="container">
         <div className={css.headerContainer}>
           <Link href="/" className={css.logo}>
-            <svg width="83" height="15" viewBox="0 0 177 32" aria-hidden="true">
+            <svg width="218" height="28" viewBox="0 0 346 32" aria-hidden="true">
               <use href="/sprite.svg#icon-psychologistsservices" />
             </svg>
           </Link>

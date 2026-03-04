@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import css from "./Navigation.module.css";
 import { useAuthStore } from "@/lib/store/authStore";
 
@@ -25,6 +25,8 @@ export default function Navigation({
 }: NavigationProps) {
   const router = useRouter();
   const { user, isAuthenticated, loading } = useAuthStore();
+  const pathname = usePathname();
+
 
   if (loading) {
     return null;
@@ -49,7 +51,7 @@ export default function Navigation({
               <Link
                 href="/"
                 prefetch={false}
-                className={css.navigationLink}
+                className={`${css.navigationLink} ${pathname === "/" ? css.active : ""}`}
                 onClick={onClick}
               >
                 Home
@@ -58,7 +60,7 @@ export default function Navigation({
 
             <li className={css.navigationItem}>
               <Link
-                className={css.navigationLink}
+                className={`${css.navigationLink} ${pathname === "/" ? css.active : ""}`}
                 href="/psychologists"
                 prefetch={false}
                 onClick={onClick}
@@ -69,7 +71,7 @@ export default function Navigation({
 
             <li className={css.navigationItem}>
               <Link
-                className={css.navigationLink}
+                className={`${css.navigationLink} ${pathname === "/" ? css.active : ""}`}
                 href="/favorites"
                 prefetch={false}
                 onClick={onClick}
@@ -117,7 +119,7 @@ export default function Navigation({
               <Link
                 href="/"
                 prefetch={false}
-                className={css.navigationLink}
+                className={`${css.navigationLink} ${pathname === "/" ? css.active : ""}`}
                 onClick={onClick}
               >
                 Home
@@ -126,7 +128,7 @@ export default function Navigation({
 
             <li className={css.navigationItem}>
               <Link
-                className={css.navigationLink}
+                className={`${css.navigationLink} ${pathname === "/" ? css.active : ""}`}
                 href="/psychologists"
                 prefetch={false}
                 onClick={onClick}
