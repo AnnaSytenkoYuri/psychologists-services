@@ -1,0 +1,25 @@
+.authButtons {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+  
+  }
+  
+  .loginBtn {
+      border: 1px solid rgba(25, 26, 21, 0.2);
+      border-radius: 30px;
+      padding: 14px 39px;
+      width: 124px;
+      height: 48px;
+      text-align: center;
+  }
+  
+  .registerBtn {
+      border-radius: 30px;
+      padding: 14px 40px;
+      width: 171px;
+      height: 48px;
+      background-color: #54be96;
+      text-align: center;
+  
+  }

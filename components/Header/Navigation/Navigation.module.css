@@ -1,7 +1,6 @@
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   justify-content: center;
   align-items: center;
 }
@@ -36,7 +35,7 @@
 .active::after {
     content: "";
     position: absolute;
-    bottom: -4px;
+    bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
     
@@ -46,73 +45,6 @@
     border-radius: 50%;
   }
 
-.navigationLinkBtn {
-  padding: 8px 18px;
-  width: 335px;
-  height: 40px;
-  margin-top: 8px;
-}
-
-.userContainer {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
-}
-
-.userBox {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  align-items: center;
-}
-
-.avatar {
-  border-radius: 256px;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.username {
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 150%;
-  color: var(--color-scheme-1-text);
-  white-space: nowrap;
-}
-
-.divider {
-  width: 1px;
-  height: 39px;
-  background: var(--color-scheme-1-text);
-}
-
-.avatarPlaceholder {
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-  display: grid;
-  place-items: center;
-  font-size: 16px;
-  font-weight: 700;
-  background-color: var(--color-electric-violet);
-  color: var(--color-white);
-  border: 2px solid var(--color-electric-violet);
-}
-
-.logoutBtn {
-  width: 24px;
-  height: 24px;
-}
-
-.logoutBtn:hover,
-.logoutBtn:focus,
-.logoutBtn:active {
-  fill: var(--color-electric-violet);
-}
 
 @media (min-width: 768px) {
   .navigationLinkBtn {
@@ -123,7 +55,7 @@
 @media (min-width: 1440px) {
   .nav {
     flex-direction: row;
-    gap: 40px;
+    /* gap: 345px; */
   }
 
   .navList {
@@ -133,9 +65,5 @@
 
   .navigationItem {
     height: 20px;
-  }
-
-  .navigationLinkBtn {
-    margin-top: 0px;
   }
 }
