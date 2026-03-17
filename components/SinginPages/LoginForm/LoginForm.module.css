@@ -1,0 +1,73 @@
+.loginForm {
+    position: relative;
+  border-radius: 30px;
+  width: 565px;
+  height: 509px;
+  padding: 64px;
+  background-color: #fbfbfb;
+}
+
+.closeBtn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin-bottom: 20px;
+    stroke-width: 2.50px;
+    cursor: pointer;
+    stroke: #191a15;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #191a15;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: rgba(25, 26, 21, 0.5);
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 438px;
+  height: 122px;
+}
+.input {
+  border: 1px solid rgba(25, 26, 21, 0.1);
+  border-radius: 12px;
+  padding: 16px 16px 18px;
+  height: 52px;
+}
+input::placeholder {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: #191a15;
+}
+.loginBtn {
+  border-radius: 30px;
+  padding: 16px 196px;
+  width: 438px;
+  height: 52px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+  text-align: center;
+  margin-top: 40px;
+}
