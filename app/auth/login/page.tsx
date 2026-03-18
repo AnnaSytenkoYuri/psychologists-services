@@ -1,3 +1,4 @@
+'use client'
 import LoginForm from '@/components/SinginPages/LoginForm/LoginForm';
 import css from './loginPage.module.css'
 
