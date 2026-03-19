@@ -1,0 +1,112 @@
+.loginForm {
+    position: relative;
+    border-radius: 30px;
+    width: 565px;
+    height: 100%;
+    padding: 64px;
+    background-color: #fbfbfb;
+  }
+  
+  .closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin-bottom: 20px;
+    stroke-width: 2.5px;
+    cursor: pointer;
+    stroke: #191a15;
+    background-color: transparent;
+  }
+  
+  .title {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    color: #191a15;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  .text {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 125%;
+    color: rgba(25, 26, 21, 0.5);
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 438px;
+    height: 100%;
+  }
+  .input {
+    border: 1px solid rgba(25, 26, 21, 0.1);
+    border-radius: 12px;
+    padding: 16px 16px 18px;
+    height: 52px;
+    width: 100%;
+  }
+  .input:focus {
+    border-color: #4fa37b;
+  }
+  
+  .errorText {
+    color: red;
+    font-size: 12px;
+    margin: 0px;
+  }
+  .passwordWrapper {
+    position: relative;
+    width: 100%;
+  }
+  .eyeBtn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  input::placeholder {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 125%;
+    color: #191a15;
+  }
+  .loginBtn {
+    border-radius: 30px;
+    padding: 16px 196px;
+    width: 438px;
+    height: 52px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: -0.01em;
+    color: #fbfbfb;
+    text-align: center;
+    margin-top: 40px;
+    background-color: #54be96;
+  }
+  .loginBtn:hover {
+    background-color: #36a379;
+    transition: background-color 0.3s ease;
+  }
+  .loginBtn:disabled {
+    background-color: #c0c0c0;
+    cursor: not-allowed;
+  }
+  
