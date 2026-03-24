@@ -1,0 +1,96 @@
+.wrapper {
+  position: relative;
+  width: 226px;
+}
+
+.text {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #8a8a89;
+  margin-bottom: 8px;
+}
+
+.trigger {
+  width: 100%;
+  background: linear-gradient(90deg, #54be96, #4fa37b);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #fbfbfb;
+
+  padding: 16px 162px 16px 18px;
+  border-radius: 14px;
+  border: none;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.trigger:hover {
+  opacity: 0.9;
+}
+
+.arrow,
+.arrowUp {
+  width: 12px;
+  height: 7px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+
+  stroke-width: 2px;
+  stroke: #fbfbfb;
+  transition: 0.3s;
+}
+
+.arrow {
+  transform: rotate(45deg);
+}
+
+.arrowUp {
+  transform: rotate(-135deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+
+  border-radius: 14px;
+  width: 226px;
+  height: 216px;
+
+  box-shadow: 0 20px 69px 0 rgba(0, 0, 0, 0.07);
+  background-color: #fff;
+
+  z-index: 20;
+}
+
+.option {
+  padding: 18px 14px;
+  cursor: pointer;
+
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: rgba(25, 26, 21, 0.3);
+
+  transition: 0.2s;
+}
+
+.option:hover {
+  color: #191a15;
+}
+
+.option.active {
+  color: #191a15;
+  font-weight: 500;
+}

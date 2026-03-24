@@ -1,6 +1,7 @@
 // PsychologistsList.tsx
 
 import { Psychologist } from "@/types/psychologists";
+import PsychologistCard from "./PsychologistCard";
 
 
 export default function PsychologistsList({

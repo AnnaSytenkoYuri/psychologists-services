@@ -18,7 +18,7 @@ export default function Page() {
 
   return (
     <div>
-      <Fillter value={sort} onChange={setSort} />
+      <Fillter onChange={setSort} />
 
       <PsychologistsList data={data} sort={sort} />
 
