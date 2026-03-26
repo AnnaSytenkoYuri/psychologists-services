@@ -2,7 +2,6 @@
 import { useState } from "react";
 import css from "./Fillter.module.css";
 
-
 type Option = {
   value: string;
   label: string;
@@ -33,26 +32,35 @@ export default function Fillter({
   };
 
   return (
-    <div className={css.wrraper}>
-      <p className={css.text}>Filters</p>
-      <button className={css.trigger} onClick={() => setOpen((prev) => !prev)}>
-        {selected.label}
-        <span className={open ? css.arrowUp : css.arrow} />
-      </button>
+    <div className={css.filterContainer}>
+    <div className="container">
+      <div className={css.wrraper}>
+        <p className={css.text}>Filters</p>
+        <button
+          className={css.trigger}
+          onClick={() => setOpen((prev) => !prev)}
+        >
+          {selected.label}
+          <span className={open ? css.arrowUp : css.arrow} />
+        </button>
 
-      {open && (
-        <div className={css.dropdown}>
-          {options.map((option) => (
-            <div
-              className={css.option}
-              key={option.value}
-              onClick={() => handleSelect(option)}
-            >
-              {option.label}
+        {open && (
+          <div className={css.dropdown}>
+            <div className={css.optionsContainer}>
+            {options.map((option) => (
+              <div
+                className={css.option}
+                key={option.value}
+                onClick={() => handleSelect(option)}
+              >
+                {option.label}
+              </div>
+            ))}
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        )}
+      </div>
+    </div>
     </div>
   );
 }
