@@ -5,7 +5,7 @@ import PsychologistsList from "@/components/Psychologists/PsychologistsList";
 import { getPsychologists } from "@/lib/api/api";
 import { Psychologist } from "@/types/psychologists";
 import { useEffect, useState } from "react";
-
+import css from "./PsychologistsPage.module.css"
 
 export default function Page() {
   const [data, setData] = useState<Psychologist[]>([]);
@@ -17,14 +17,15 @@ export default function Page() {
   }, [limit]);
 
   return (
-    <div >
+    <div className="container">
       <Fillter onChange={setSort} />
 
       <PsychologistsList data={data} sort={sort} />
-
-      <button onClick={() => setLimit((prev) => prev + 3)}>
+     <div className={css.btnContainer}>
+      <button className={css.loadMoreBtn} onClick={() => setLimit((prev) => prev + 3)}>
         Load more
       </button>
+     </div>
     </div>
   );
 }

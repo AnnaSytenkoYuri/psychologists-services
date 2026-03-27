@@ -35,6 +35,7 @@
 
   cursor: pointer;
   transition: 0.3s;
+  margin-bottom: 32px;
 }
 
 .trigger:hover {

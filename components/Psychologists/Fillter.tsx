@@ -33,7 +33,7 @@ export default function Fillter({
 
   return (
     <div className={css.filterContainer}>
-    <div className="container">
+    {/* <div className="container"> */}
       <div className={css.wrraper}>
         <p className={css.text}>Filters</p>
         <button
@@ -60,7 +60,7 @@ export default function Fillter({
           </div>
         )}
       </div>
-    </div>
+    {/* </div> */}
     </div>
   );
 }
