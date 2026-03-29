@@ -34,7 +34,7 @@ export default function Fillter({
   return (
     <div className={css.filterContainer}>
     {/* <div className="container"> */}
-      <div className={css.wrraper}>
+      <div className={css.wrapper}>
         <p className={css.text}>Filters</p>
         <button
           className={css.trigger}

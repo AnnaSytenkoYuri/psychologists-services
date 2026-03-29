@@ -1,7 +1,7 @@
 import Image from "next/image";
 import css from "./UserMenu.module.css";
-import { useAuthStore } from "@/lib/store/authStore";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export type PublicUser = {
   _id: number;
@@ -11,14 +11,17 @@ export type PublicUser = {
 
 export default function UserMenu({ onClick }: { onClick?: () => void }) {
   const router = useRouter();
-  const { user} = useAuthStore();
+  const { user } = useAuth();
 
   const handleLogout = () => {
     onClick?.();
     router.push("/confirm/logout");
   };
 
-  const currentUser = user as PublicUser | null;
+  const currentUser = {
+    name: user?.displayName || user?.email,
+    avatar: user?.photoURL,
+  };
 
   if (!currentUser) return null;
   const firstLetter = currentUser?.name?.charAt(0).toUpperCase();

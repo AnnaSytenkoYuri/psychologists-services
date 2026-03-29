@@ -4,11 +4,11 @@ import css from "./Header.module.css";
 import Navigation from "./Navigation/Navigation";
 import UserMenu from "./UserMenu/UserMenu";
 import AuthButtons from "./AuthButtons/AuthButtons";
-import { useAuthStore } from "@/lib/store/authStore";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Header() {
 
-const { isAuthenticated } = useAuthStore();
+const { user } = useAuth();
 
   return (
     <header className={css.header}>
@@ -27,8 +27,8 @@ const { isAuthenticated } = useAuthStore();
           {/* Desktop navigation */}
 
           <div className={css.navDesktop}>
-            <Navigation  variant="header" />
-            {isAuthenticated ? <UserMenu /> : <AuthButtons />}
+            <Navigation  variant="header" user={user}/>
+            {user ? <UserMenu /> : <AuthButtons />}
           </div>
         </div>
       </div>

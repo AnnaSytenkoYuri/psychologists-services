@@ -5,9 +5,12 @@ import { useRouter } from "next/navigation";
 import { Eye, EyeOff } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { RegistrationFormData, registrationSchema } from "@/validation/auth.schema";
+import {
+  RegistrationFormData,
+  registrationSchema,
+} from "@/validation/auth.schema";
 
-export default function RegistrationForm()  {
+export default function RegistrationForm() {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
@@ -55,10 +58,11 @@ export default function RegistrationForm()  {
       </button>
       <h1 className={css.title}>Registration</h1>
       <p className={css.text}>
-      Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.
+        Thank you for your interest in our platform! In order to register, we
+        need some information. Please provide us with the following information.
       </p>
       <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
-      <input
+        <input
           {...register("username")}
           className={css.input}
           type="username"
@@ -66,7 +70,7 @@ export default function RegistrationForm()  {
         />{" "}
         {errors.username && (
           <p className={css.errorText}>{errors.username.message}</p>
-        )}   
+        )}
         <input
           {...register("email")}
           className={css.input}
@@ -95,7 +99,7 @@ export default function RegistrationForm()  {
           <p className={css.errorText}>{errors.password.message}</p>
         )}
         <button disabled={!isValid} className={css.loginBtn} type="submit">
-          Log In
+          Sign up
         </button>
       </form>
     </div>

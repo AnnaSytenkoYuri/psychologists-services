@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import css from "./Navigation.module.css";
-import { useAuthStore } from "@/lib/store/authStore";
 import { usePathname } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 type NavVariant = "header" | "burger";
 
@@ -17,11 +17,11 @@ export default function Navigation({
   onClick,
 }: NavigationProps) {
   
-  const { isAuthenticated } = useAuthStore();
+  const { user } = useAuth();
   const pathname = usePathname();
 
 
-//   if (loading && !user) return null;
+  // if (loading && !user) return null;
 
 
   return (
@@ -49,7 +49,7 @@ export default function Navigation({
                 Psychologists
               </Link>
             </li>
-            {isAuthenticated && (
+            {user && (
             <li className={css.navigationItem}>
               <Link
                 className={`${css.navigationLink} ${pathname === "/favorites" ? css.active : ""}`}
@@ -66,3 +66,20 @@ export default function Navigation({
     </nav>
   );
 }
+
+
+// "use client";
+// import { User } from "firebase/auth";
+// import Link from "next/link";
+
+// export default function Navigation({ user }: { user: User }) {
+//   return (
+//     <nav>
+//       <Link href="/">Home</Link>
+//       <Link href="/psychologists">Psychologists</Link>
+
+//       {/* 👇 ОЦЕ ГОЛОВНЕ */}
+//       {user && <Link href="/favorites">Favorites</Link>}
+//     </nav>
+//   );
+// }

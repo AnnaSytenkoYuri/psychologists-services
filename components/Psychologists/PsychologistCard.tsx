@@ -22,8 +22,40 @@ export default function PsychologistCard({ item }: { item: Psychologist }) {
           <p className={css.text}>Psychologist</p>
           <div className={css.rightTop}>
             <div className={css.ratingContainer}>
-              <p className={css.textextRating}>⭐ {item.rating}</p>
-              <p className={css.textPrice}>${item.price_per_hour}/hour</p>
+              <p className={css.textRating}>
+                <span>
+                  <svg
+                    width="15"
+                    height="14"
+                    viewBox="0 0 15 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.88965 4.12576C9.0488 4.42728 9.33887 4.63789 9.6748 4.69608L13.4746 5.35233L10.7871 8.1199C10.5496 8.36447 10.4388 8.70529 10.4873 9.04276L11.0361 12.8601L7.5752 11.159L7.45801 11.1092C7.21993 11.0246 6.95976 11.0246 6.72168 11.1092L6.60449 11.159L3.14258 12.8601L3.69238 9.04276C3.74091 8.70529 3.6301 8.36447 3.39258 8.1199L0.704102 5.35233L4.50488 4.69608C4.84082 4.63789 5.13088 4.42728 5.29004 4.12576L7.08984 0.71463L8.88965 4.12576Z"
+                      fill="#FFC531"
+                      stroke="#FFC531"
+                      stroke-width="1.2"
+                    />
+                  </svg>
+                </span>
+                <span>Rating: {item.rating}</span>
+              </p>
+              <span className={css.divider}>
+                <svg
+                  width="1"
+                  height="16"
+                  viewBox="0 0 1 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0.5 0V16" stroke="#191A15" stroke-opacity="0.2" />
+                </svg>
+              </span>
+              <p className={css.textPrice}>
+                Price / 1 hour:{" "}
+                <span className={css.textSpan}>{item.price_per_hour}$</span>
+              </p>
             </div>
             <div className={css.heart}>
               <svg

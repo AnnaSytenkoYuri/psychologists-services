@@ -47,7 +47,7 @@
 .ratingContainer {
   display: inline-flex;
   align-items: center;
-  gap: 32px;
+  gap: 16px;
 }
 
 .rightTop {
@@ -57,6 +57,9 @@
 }
 
 .textRating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
@@ -79,9 +82,14 @@
   cursor: pointer;
 }
 
-/* .spam {
-    color: #38cd3e;
-} */
+.divider {
+  color: rgba(25, 26, 21, 0.2);
+}
+
+.textSpan {
+  color: #38cd3e;
+}
+
 .name {
   font-family: var(--font-family);
   font-weight: 500;
