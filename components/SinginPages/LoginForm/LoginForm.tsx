@@ -6,6 +6,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginFormData, loginSchema } from "@/validation/auth.schema";
+import { login } from "@/lib/auth";
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,9 +21,13 @@ export default function LoginForm() {
     mode: "onChange",
   });
 
-  const onSubmit = (data: LoginFormData) => {
-    console.log(data.email);
-    console.log(data.password);
+  const onSubmit = async (data: LoginFormData) => {
+    try {
+      await login(data.email, data.password);
+      router.push("/");
+    } catch (error) {
+      console.error("Login error:", error);
+    }
   };
 
   return (

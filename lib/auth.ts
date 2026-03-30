@@ -9,7 +9,7 @@ import {
   import { auth } from "./firebase";
   
   // 🔐 Реєстрація
-  export const register = async (email: string, password: string) => {
+  export const registerUser = async (email: string, password: string) => {
     return await createUserWithEmailAndPassword(auth, email, password);
   };
   

@@ -17,7 +17,8 @@ export default function Navigation({
   onClick,
 }: NavigationProps) {
   
-  const { user } = useAuth();
+  const authContext = useAuth();
+  const user = authContext?.user;
   const pathname = usePathname();
 
 

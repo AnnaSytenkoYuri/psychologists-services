@@ -2,6 +2,7 @@ import Image from "next/image";
 import css from "./UserMenu.module.css";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import { logout } from "@/lib/auth";
 
 export type PublicUser = {
   _id: number;
@@ -9,13 +10,17 @@ export type PublicUser = {
   avatar?: string;
 };
 
-export default function UserMenu({ onClick }: { onClick?: () => void }) {
+export default function UserMenu() {
   const router = useRouter();
   const { user } = useAuth();
 
-  const handleLogout = () => {
-    onClick?.();
-    router.push("/confirm/logout");
+  const handleLogout = async () => {
+    try {
+      await logout();
+      router.push("/");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
   };
 
   const currentUser = {

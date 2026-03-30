@@ -82,6 +82,12 @@
   cursor: pointer;
 }
 
+.heartActive {
+  fill: #54be96;
+  stroke-width: 2px;
+  stroke: #54be96;
+}
+
 .divider {
   color: rgba(25, 26, 21, 0.2);
 }

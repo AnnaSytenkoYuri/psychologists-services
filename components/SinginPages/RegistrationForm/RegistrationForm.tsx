@@ -9,6 +9,8 @@ import {
   RegistrationFormData,
   registrationSchema,
 } from "@/validation/auth.schema";
+import { updateProfile } from "firebase/auth";
+import { registerUser } from "@/lib/auth";
 
 export default function RegistrationForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,10 +25,16 @@ export default function RegistrationForm() {
     mode: "onChange",
   });
 
-  const onSubmit = (data: RegistrationFormData) => {
-    console.log(data.username);
-    console.log(data.email);
-    console.log(data.password);
+  const onSubmit = async (data: RegistrationFormData) => {
+    try {
+      const res = await registerUser(data.email, data.password);
+      await updateProfile(res.user, {
+        displayName: data.username,
+      });
+      router.push("/");
+    } catch (error) {
+      console.error("Registration error:", error);
+    }
   };
 
   return (
