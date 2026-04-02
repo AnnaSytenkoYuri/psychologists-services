@@ -37,7 +37,7 @@ export default function FavoritesPage() {
   }, [user, router, limit]);
 
   if (data.length === 0) {
-    return <p>No favorites yet</p>;
+    return <p className={css.noData}>No favorites yet</p>;
   }
 
 
