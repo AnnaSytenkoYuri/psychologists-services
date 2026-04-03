@@ -24,7 +24,7 @@ export default function LoginForm() {
   const onSubmit = async (data: LoginFormData) => {
     try {
       await login(data.email, data.password);
-      router.push("/");
+      router.back();
     } catch (error) {
       console.error("Login error:", error);
     }

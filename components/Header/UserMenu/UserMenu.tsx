@@ -15,6 +15,9 @@ export default function UserMenu() {
   const { user } = useAuth();
 
   const handleLogout = async () => {
+
+    const isConfirmed = window.confirm("Are you sure you want to log out?");
+    if (!isConfirmed) return;
     try {
       await logout();
       router.push("/");

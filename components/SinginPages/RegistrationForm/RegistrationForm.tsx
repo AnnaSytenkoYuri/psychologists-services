@@ -31,7 +31,7 @@ export default function RegistrationForm() {
       await updateProfile(res.user, {
         displayName: data.username,
       });
-      router.push("/");
+      router.back();
     } catch (error) {
       console.error("Registration error:", error);
     }
