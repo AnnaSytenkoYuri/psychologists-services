@@ -11,6 +11,7 @@ export default function Page() {
   const [data, setData] = useState<Psychologist[]>([]);
   const [limit, setLimit] = useState(3);
   const [sort, setSort] = useState("name-asc");
+  
 
   useEffect(() => {
     getPsychologists(limit).then(setData);

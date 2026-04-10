@@ -1,7 +1,10 @@
+"use client";
 import Image from "next/image";
 import css from "./Hero.module.css";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+  const router = useRouter();
   return (
     <section className={css.hero}>
       <div className="container">
@@ -18,7 +21,10 @@ export default function Hero() {
               <br />
               experienced psychologists.
             </p>
-            <button className={css.heroBtn}>
+            <button
+              className={css.heroBtn}
+              onClick={() => router.push("/psychologists")}
+            >
               Get started
               <svg
                 width="14"
