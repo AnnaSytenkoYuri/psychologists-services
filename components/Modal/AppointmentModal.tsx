@@ -5,7 +5,7 @@ import {
   appointmentSchema,
 } from "@/validation/appointment.schema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import css from "./AppointmentModal.module.css";
 import Image from "next/image";
@@ -28,6 +28,9 @@ export default function AppointmentModal({
   } = useForm<AppointmentFormData>({
     resolver: yupResolver(appointmentSchema),
   });
+
+  const [showTime, setShowTime] = useState(false);
+  const [selectedTime, setSelectedTime] = useState("");
 
   const onSubmit = (data: AppointmentFormData) => {
     console.log("Form data:", data);
@@ -56,29 +59,29 @@ export default function AppointmentModal({
       <div className={css.modal} onClick={(e) => e.stopPropagation()}>
         {/* ❌ close */}
         <button className={css.closeBtn} onClick={onClose}>
-        <svg
-          width="32"
-          height="32"
-          viewBox="0 0 32 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {" "}
-          <path
-            d="M24 8L8 24"
-            stroke="#191A15"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />{" "}
-          <path
-            d="M8 8L24 24"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />{" "}
-        </svg>
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {" "}
+            <path
+              d="M24 8L8 24"
+              stroke="#191A15"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />{" "}
+            <path
+              d="M8 8L24 24"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />{" "}
+          </svg>
         </button>
 
         <h2 className={css.title}>Make an appointment with a psychologists</h2>
@@ -107,21 +110,95 @@ export default function AppointmentModal({
 
         {/* 📝 FORM */}
         <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
-          <input className={css.input} placeholder="Name" {...register("name")} />
+          <input
+            className={css.input}
+            placeholder="Name"
+            {...register("name")}
+          />
           {errors.name && <p className={css.error}>{errors.name.message}</p>}
 
           <div className={css.row}>
-            <input className={css.input} placeholder="+380" {...register("phone")} />
-            <input className={css.input} placeholder="00:00" {...register("time")} />
+            <input
+              className={css.input}
+              placeholder="+380"
+              {...register("phone")}
+            />
+            <div className={css.timeWrapper}>
+              <input
+                className={css.input}
+                placeholder="00:00"
+                {...register("time")}
+                value={selectedTime}
+                readOnly
+                onClick={() => setShowTime(!showTime)}
+              />
+              {/* Icon */}
+              <svg
+                className={css.timeIcon}
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_42_1350)">
+                  <path
+                    d="M10.0003 18.3333C14.6027 18.3333 18.3337 14.6024 18.3337 10C18.3337 5.39763 14.6027 1.66667 10.0003 1.66667C5.39795 1.66667 1.66699 5.39763 1.66699 10C1.66699 14.6024 5.39795 18.3333 10.0003 18.3333Z"
+                    stroke="#191A15"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M10 5V10L13.3333 11.6667"
+                    stroke="#191A15"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_42_1350">
+                    <rect width="20" height="20" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+
+              {showTime && (
+                <div className={css.timeDropdown}>
+                  <p className={css.timeTitle}>Meeting time</p>
+                  {["09 : 00", "10 : 00", "11 : 00", "14 : 00"].map((time) => (
+                    <p
+                      key={time}
+                      className={css.timeOption}
+                      onClick={() => {
+                        setSelectedTime(time);
+                        setShowTime(false);
+                      }}
+                    >
+                      {time}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {errors.phone && <p className={css.error}>{errors.phone.message}</p>}
           {errors.time && <p className={css.error}>{errors.time.message}</p>}
 
-          <input className={css.input} placeholder="Email" {...register("email")} />
+          <input
+            className={css.input}
+            placeholder="Email"
+            {...register("email")}
+          />
           {errors.email && <p className={css.error}>{errors.email.message}</p>}
 
-          <textarea placeholder="Comment" {...register("comment")} className={css.textarea} />
+          <textarea
+            placeholder="Comment"
+            {...register("comment")}
+            className={css.textarea}
+          />
           {errors.comment && (
             <p className={css.error}>{errors.comment.message}</p>
           )}

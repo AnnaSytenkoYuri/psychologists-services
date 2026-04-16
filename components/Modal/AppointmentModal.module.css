@@ -23,8 +23,8 @@
 
 .modal {
   border-radius: 30px;
-  width: 100%;
   max-width: 600px;
+  width: 100%;
   padding: 64px;
   background: #fbfbfb;
   position: relative;
@@ -96,6 +96,63 @@
   color: #191a15;
   padding: 16px 18px;
 }
+.error {
+  color: red;
+}
+
+/* Dropdown */
+
+.timeWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.timeIcon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* щоб клік проходив на input */
+}
+.timeTitle {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #191a15;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.timeDropdown {
+  position: absolute;
+  top: 60px;
+  right: 0px;
+  border-radius: 12px;
+  width: 150px;
+  background: white;
+  padding: 16px;
+  box-shadow: 0 20px 69px 0 rgba(0, 0, 0, 0.07);
+  z-index: 10;
+}
+
+.timeOption {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  text-align: center;
+  color: rgba(25, 26, 21, 0.3);
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+.timeOption:last-child {
+  margin-bottom: 0;
+}
+
+.timeOption:hover {
+  color: #191a15;
+}
+
 .row {
   display: flex;
   flex-direction: row;
