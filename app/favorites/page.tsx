@@ -12,7 +12,7 @@ import css from "./FavoritesPage.module.css";
 import { Psychologist } from "@/types/psychologists";
 
 export default function FavoritesPage() {
-  const { user } = useAuth();
+  const { user, isAuthChecked } = useAuth();
   const router = useRouter();
   const [limit, setLimit] = useState(3);
 
@@ -20,6 +20,8 @@ export default function FavoritesPage() {
   const [sort, setSort] = useState("name-asc");
 
   useEffect(() => {
+    if (!isAuthChecked) return;
+
     if (!user) {
       router.push("/auth/login");
       return;
@@ -34,23 +36,37 @@ export default function FavoritesPage() {
     };
 
     fetchFavorites();
-  }, [user, router, limit]);
+  }, [user, isAuthChecked, router, limit]);
 
   if (data.length === 0) {
     return <p className={css.noData}>No favorites yet</p>;
   }
 
+  if (!isAuthChecked) {
+    return (
+      <div className={css.loaderWrapper}>
+        <p className={css.loader}>Loading...</p> 
+      </div>
+  ); 
+  }
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className="container">
       <Fillter onChange={setSort} />
 
       <PsychologistsList data={data} sort={sort} />
-     <div className={css.btnContainer}>
-      <button className={css.loadMoreBtn} onClick={() => setLimit((prev) => prev + 3)}>
-        Load more
-      </button>
-     </div>
+      <div className={css.btnContainer}>
+        <button
+          className={css.loadMoreBtn}
+          onClick={() => setLimit((prev) => prev + 3)}
+        >
+          Load more
+        </button>
+      </div>
     </div>
   );
 }

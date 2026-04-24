@@ -1,35 +1,51 @@
 .btnContainer {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 64px;
-  }
-  
-  .loadMoreBtn {
-    border-radius: 30px;
-    padding: 14px 48px;
-    width: 176px;
-    height: 48px;
-    background-color: #54be96;
-    font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 125%;
-    letter-spacing: -0.01em;
-    color: #fbfbfb;
-  }
-  .loadMoreBtn:hover {
-    background-color: #36a379;
-    transition: background-color 0.3s eas;
-  }
+  display: flex;
+  justify-content: center;
+  margin-bottom: 64px;
+}
 
-  .noData{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 125%;
-    letter-spacing: -0.01em;
-    color: #191a15;
-  }
+.loadMoreBtn {
+  border-radius: 30px;
+  padding: 14px 48px;
+  width: 176px;
+  height: 48px;
+  background-color: #54be96;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+}
+.loadMoreBtn:hover {
+  background-color: #36a379;
+  transition: background-color 0.3s eas;
+}
+
+.noData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  color: #191a15;
+}
+
+.loaderWrapper {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #eee;
+  border-top: 4px solid #54be96;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}

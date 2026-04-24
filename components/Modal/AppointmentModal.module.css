@@ -96,8 +96,18 @@
   color: #191a15;
   padding: 16px 18px;
 }
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px; /* 🔥 контролює відстань між input і error */
+}
+
 .error {
   color: red;
+  font-size: 12px;
+  line-height: 1.2;
 }
 
 /* Dropdown */
@@ -169,7 +179,6 @@
   font-size: 16px;
   line-height: 125%;
   color: #191a15;
-  margin-bottom: 40px;
   resize: none;
 }
 .submit {
