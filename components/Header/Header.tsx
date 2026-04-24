@@ -7,8 +7,7 @@ import AuthButtons from "./AuthButtons/AuthButtons";
 import { useAuth } from "@/context/AuthContext";
 
 export default function Header() {
-
-const { user } = useAuth();
+  const { user } = useAuth();
 
   return (
     <header className={css.header}>
@@ -27,7 +26,7 @@ const { user } = useAuth();
           {/* Desktop navigation */}
 
           <div className={css.navDesktop}>
-            <Navigation  variant="header" user={user}/>
+            <Navigation variant="header" />
             {user ? <UserMenu /> : <AuthButtons />}
           </div>
         </div>
