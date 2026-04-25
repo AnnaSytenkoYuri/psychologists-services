@@ -47,6 +47,7 @@ export default function Hero() {
               alt="Hero Image"
               width={464}
               height={526}
+              priority
             />
             <div className={css.yellowIcon}>
               <svg
